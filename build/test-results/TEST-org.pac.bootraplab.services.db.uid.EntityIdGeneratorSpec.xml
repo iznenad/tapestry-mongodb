@@ -1,0 +1,844 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<testsuite name="org.pac.bootraplab.services.db.uid.EntityIdGeneratorSpec" tests="8" failures="0" errors="0" timestamp="1970-01-01T00:00:00" hostname="iznenad" time="1.386784012136E9">
+  <properties/>
+  <testcase name="should return an uid formed out of type from IdSpec and identifier fields" classname="org.pac.bootraplab.services.db.uid.EntityIdGeneratorSpec" time="0.096"/>
+  <testcase name="should return a uid with the type defined in IdSpec and a random UUID as identifier" classname="org.pac.bootraplab.services.db.uid.EntityIdGeneratorSpec" time="0.024"/>
+  <testcase name="should throw an illegal state exception if trying to generate uid for an entity IdSpec" classname="org.pac.bootraplab.services.db.uid.EntityIdGeneratorSpec" time="0.005"/>
+  <testcase name="should deserialize a string of full UID into UID object" classname="org.pac.bootraplab.services.db.uid.EntityIdGeneratorSpec" time="0.023"/>
+  <testcase name="IllegalArgumentException thrown for inputs: 'sdakdmsad'" classname="org.pac.bootraplab.services.db.uid.EntityIdGeneratorSpec" time="0.0"/>
+  <testcase name="IllegalArgumentException thrown for inputs: 'null'" classname="org.pac.bootraplab.services.db.uid.EntityIdGeneratorSpec" time="0.0"/>
+  <testcase name="IllegalArgumentException thrown for inputs: ''" classname="org.pac.bootraplab.services.db.uid.EntityIdGeneratorSpec" time="0.0"/>
+  <testcase name="IllegalArgumentException thrown for inputs: 'sdadsad-dsadsadsa-dsadsad-dsadsa-dsadsa'" classname="org.pac.bootraplab.services.db.uid.EntityIdGeneratorSpec" time="0.0"/>
+  <system-out><![CDATA[18:46:51.788 [Test worker] INFO  o.a.tapestry5.ioc.RegistryBuilder - Adding module definition for class org.apache.tapestry5.ioc.modules.TapestryIOCModule
+18:46:51.852 [Test worker] INFO  o.a.tapestry5.ioc.RegistryBuilder - Adding module definition for class org.spockframework.tapestry.ExtensionModule
+18:46:51.852 [Test worker] INFO  o.a.tapestry5.ioc.RegistryBuilder - Adding module definition for class org.pac.test.modules.DBTestModule
+18:46:51.875 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] --> Eager loading services
+18:46:51.876 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] <-- Eager loading services [0.46 ms]
+18:46:51.876 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] --> Eager loading services
+18:46:51.876 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] <-- Eager loading services [0.10 ms]
+18:46:51.877 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] --> Eager loading services
+18:46:51.877 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] <-- Eager loading services [0.14 ms]
+18:46:51.878 [Test worker] DEBUG o.a.t.i.m.T.RegistryStartup - Creating proxy for service RegistryStartup
+18:46:51.879 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] --> Creating proxy for service RegistryStartup
+18:46:51.908 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  2] --> Obtaining AspectDecorator service
+18:46:51.908 [Test worker] DEBUG o.a.t.i.m.T.AspectDecorator - Creating proxy for service AspectDecorator
+18:46:51.908 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] --> Creating proxy for service AspectDecorator
+18:46:51.941 [Test worker] DEBUG o.a.t.i.m.T.PlasticProxyFactory - Loading class $AspectDecorator_a12c8735b51b:
+// class version 49.0 (49)
+// access flags 0x1
+public class $AspectDecorator_a12c8735b51b implements org/apache/tapestry5/ioc/services/AspectDecorator java/io/Serializable  {
+
+
+  // access flags 0x12
+  private final Lorg/apache/tapestry5/ioc/ObjectCreator; creator
+
+  // access flags 0x12
+  private final Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken; token
+
+  // access flags 0x1
+  public createBuilder(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/String;)Lorg/apache/tapestry5/ioc/services/AspectInterceptorBuilder;
+    ALOAD 0
+    INVOKESPECIAL $AspectDecorator_a12c8735b51b.delegate ()Lorg/apache/tapestry5/ioc/services/AspectDecorator;
+    ALOAD 1
+    ALOAD 2
+    ALOAD 3
+    INVOKEINTERFACE org/apache/tapestry5/ioc/services/AspectDecorator.createBuilder (Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/String;)Lorg/apache/tapestry5/ioc/services/AspectInterceptorBuilder;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public createBuilder(Ljava/lang/Class;Ljava/lang/Object;Lorg/apache/tapestry5/ioc/AnnotationAccess;Ljava/lang/String;)Lorg/apache/tapestry5/ioc/services/AspectInterceptorBuilder;
+    ALOAD 0
+    INVOKESPECIAL $AspectDecorator_a12c8735b51b.delegate ()Lorg/apache/tapestry5/ioc/services/AspectDecorator;
+    ALOAD 1
+    ALOAD 2
+    ALOAD 3
+    ALOAD 4
+    INVOKEINTERFACE org/apache/tapestry5/ioc/services/AspectDecorator.createBuilder (Ljava/lang/Class;Ljava/lang/Object;Lorg/apache/tapestry5/ioc/AnnotationAccess;Ljava/lang/String;)Lorg/apache/tapestry5/ioc/services/AspectInterceptorBuilder;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1010
+  final reject_field_change_creator(Lorg/apache/tapestry5/ioc/ObjectCreator;)V
+    NEW java/lang/IllegalStateException
+    DUP
+    LDC "Field creator of class $AspectDecorator_a12c8735b51b is read-only."
+    INVOKESPECIAL java/lang/IllegalStateException.<init> (Ljava/lang/String;)V
+    ATHROW
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1010
+  final reject_field_change_token(Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;)V
+    NEW java/lang/IllegalStateException
+    DUP
+    LDC "Field token of class $AspectDecorator_a12c8735b51b is read-only."
+    INVOKESPECIAL java/lang/IllegalStateException.<init> (Ljava/lang/String;)V
+    ATHROW
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x2
+  private delegate()Lorg/apache/tapestry5/ioc/services/AspectDecorator;
+    ALOAD 0
+    GETFIELD $AspectDecorator_a12c8735b51b.creator : Lorg/apache/tapestry5/ioc/ObjectCreator;
+    INVOKEINTERFACE org/apache/tapestry5/ioc/ObjectCreator.createObject ()Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/services/AspectDecorator
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x2
+  private writeReplace()Ljava/lang/Object; throws java/io/ObjectStreamException 
+    ALOAD 0
+    GETFIELD $AspectDecorator_a12c8735b51b.token : Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public toString()Ljava/lang/String;
+    LDC "<Proxy for AspectDecorator(org.apache.tapestry5.ioc.services.AspectDecorator)>"
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public <init>(Lorg/apache/tapestry5/internal/plastic/StaticContext;Lorg/apache/tapestry5/plastic/InstanceContext;)V
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    ALOAD 0
+    ALOAD 1
+    ICONST_0
+    INVOKEVIRTUAL org/apache/tapestry5/internal/plastic/StaticContext.get (I)Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/ObjectCreator
+    PUTFIELD $AspectDecorator_a12c8735b51b.creator : Lorg/apache/tapestry5/ioc/ObjectCreator;
+    ALOAD 0
+    ALOAD 1
+    ICONST_1
+    INVOKEVIRTUAL org/apache/tapestry5/internal/plastic/StaticContext.get (I)Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/internal/ServiceProxyToken
+    PUTFIELD $AspectDecorator_a12c8735b51b.token : Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;
+    RETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+}
+
+18:46:51.950 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] <-- Creating proxy for service AspectDecorator [41.84 ms]
+18:46:51.950 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  2] <-- Obtaining AspectDecorator service [42.58 ms]
+18:46:51.952 [Test worker] DEBUG o.a.t.i.m.T.PlasticProxyFactory - Loading class $Runnable_a12c8735b51c:
+// class version 49.0 (49)
+// access flags 0x1
+public class $Runnable_a12c8735b51c implements java/lang/Runnable java/io/Serializable  {
+
+
+  // access flags 0x12
+  private final Lorg/apache/tapestry5/ioc/ObjectCreator; creator
+
+  // access flags 0x12
+  private final Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken; token
+
+  // access flags 0x1
+  public run()V
+    ALOAD 0
+    INVOKESPECIAL $Runnable_a12c8735b51c.delegate ()Ljava/lang/Runnable;
+    INVOKEINTERFACE java/lang/Runnable.run ()V
+    RETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1010
+  final reject_field_change_creator(Lorg/apache/tapestry5/ioc/ObjectCreator;)V
+    NEW java/lang/IllegalStateException
+    DUP
+    LDC "Field creator of class $Runnable_a12c8735b51c is read-only."
+    INVOKESPECIAL java/lang/IllegalStateException.<init> (Ljava/lang/String;)V
+    ATHROW
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1010
+  final reject_field_change_token(Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;)V
+    NEW java/lang/IllegalStateException
+    DUP
+    LDC "Field token of class $Runnable_a12c8735b51c is read-only."
+    INVOKESPECIAL java/lang/IllegalStateException.<init> (Ljava/lang/String;)V
+    ATHROW
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x2
+  private delegate()Ljava/lang/Runnable;
+    ALOAD 0
+    GETFIELD $Runnable_a12c8735b51c.creator : Lorg/apache/tapestry5/ioc/ObjectCreator;
+    INVOKEINTERFACE org/apache/tapestry5/ioc/ObjectCreator.createObject ()Ljava/lang/Object;
+    CHECKCAST java/lang/Runnable
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x2
+  private writeReplace()Ljava/lang/Object; throws java/io/ObjectStreamException 
+    ALOAD 0
+    GETFIELD $Runnable_a12c8735b51c.token : Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public toString()Ljava/lang/String;
+    LDC "<Proxy for RegistryStartup(java.lang.Runnable)>"
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public <init>(Lorg/apache/tapestry5/internal/plastic/StaticContext;Lorg/apache/tapestry5/plastic/InstanceContext;)V
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    ALOAD 0
+    ALOAD 1
+    ICONST_0
+    INVOKEVIRTUAL org/apache/tapestry5/internal/plastic/StaticContext.get (I)Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/ObjectCreator
+    PUTFIELD $Runnable_a12c8735b51c.creator : Lorg/apache/tapestry5/ioc/ObjectCreator;
+    ALOAD 0
+    ALOAD 1
+    ICONST_1
+    INVOKEVIRTUAL org/apache/tapestry5/internal/plastic/StaticContext.get (I)Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/internal/ServiceProxyToken
+    PUTFIELD $Runnable_a12c8735b51c.token : Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;
+    RETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+}
+
+18:46:51.954 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] <-- Creating proxy for service RegistryStartup [74.78 ms]
+18:46:51.955 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] --> Realizing service RegistryStartup
+18:46:51.955 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  2] --> Instantiating service RegistryStartup implementation via org.apache.tapestry5.ioc.internal.services.RegistryStartup(Logger, List) (at RegistryStartup.java:37) via org.apache.tapestry5.ioc.modules.TapestryIOCModule.bind(ServiceBinder) (at TapestryIOCModule.java:50)
+18:46:51.957 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] --> Creating plan to instantiate org.apache.tapestry5.ioc.internal.services.RegistryStartup via public org.apache.tapestry5.ioc.internal.services.RegistryStartup(org.slf4j.Logger,java.util.List)
+18:46:51.958 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  4] --> Determining injection value for parameter #1 (org.slf4j.Logger)
+18:46:51.959 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  4] <-- Determining injection value for parameter #1 (org.slf4j.Logger) [1.16 ms]
+18:46:51.959 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  4] --> Determining injection value for parameter #2 (java.util.List)
+18:46:51.960 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  5] --> Collecting ordered configuration for service RegistryStartup
+18:46:51.963 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  5] <-- Collecting ordered configuration for service RegistryStartup [3.28 ms]
+18:46:51.968 [Test worker] DEBUG o.a.t.i.m.T.RegistryStartup - Constructed configuration: []
+18:46:51.969 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  4] <-- Determining injection value for parameter #2 (java.util.List) [9.59 ms]
+18:46:51.970 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] <-- Creating plan to instantiate org.apache.tapestry5.ioc.internal.services.RegistryStartup via public org.apache.tapestry5.ioc.internal.services.RegistryStartup(org.slf4j.Logger,java.util.List) [13.05 ms]
+18:46:51.970 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] --> Invoking constructor org.apache.tapestry5.ioc.internal.services.RegistryStartup(Logger, List) (at RegistryStartup.java:37) via org.apache.tapestry5.ioc.modules.TapestryIOCModule.bind(ServiceBinder) (at TapestryIOCModule.java:50) (for service 'RegistryStartup')
+18:46:51.970 [Test worker] DEBUG o.a.t.i.m.T.RegistryStartup - Invoking constructor org.apache.tapestry5.ioc.internal.services.RegistryStartup(Logger, List) (at RegistryStartup.java:37) via org.apache.tapestry5.ioc.modules.TapestryIOCModule.bind(ServiceBinder) (at TapestryIOCModule.java:50) (for service 'RegistryStartup')
+18:46:51.970 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] <-- Invoking constructor org.apache.tapestry5.ioc.internal.services.RegistryStartup(Logger, List) (at RegistryStartup.java:37) via org.apache.tapestry5.ioc.modules.TapestryIOCModule.bind(ServiceBinder) (at TapestryIOCModule.java:50) (for service 'RegistryStartup') [0.32 ms]
+18:46:51.971 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  2] <-- Instantiating service RegistryStartup implementation via org.apache.tapestry5.ioc.internal.services.RegistryStartup(Logger, List) (at RegistryStartup.java:37) via org.apache.tapestry5.ioc.modules.TapestryIOCModule.bind(ServiceBinder) (at TapestryIOCModule.java:50) [15.75 ms]
+18:46:51.971 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] <-- Realizing service RegistryStartup [16.26 ms]
+18:46:51.972 [Test worker] DEBUG o.a.t.i.m.T.MasterObjectProvider - Creating proxy for service MasterObjectProvider
+18:46:51.972 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] --> Creating proxy for service MasterObjectProvider
+18:46:51.974 [Test worker] DEBUG o.a.t.i.m.T.PlasticProxyFactory - Loading class $MasterObjectProvider_a12c8735b51d:
+// class version 49.0 (49)
+// access flags 0x1
+public class $MasterObjectProvider_a12c8735b51d implements org/apache/tapestry5/ioc/services/MasterObjectProvider java/io/Serializable  {
+
+
+  // access flags 0x12
+  private final Lorg/apache/tapestry5/ioc/ObjectCreator; creator
+
+  // access flags 0x12
+  private final Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken; token
+
+  // access flags 0x1
+  public provide(Ljava/lang/Class;Lorg/apache/tapestry5/ioc/AnnotationProvider;Lorg/apache/tapestry5/ioc/ObjectLocator;Z)Ljava/lang/Object;
+    ALOAD 0
+    INVOKESPECIAL $MasterObjectProvider_a12c8735b51d.delegate ()Lorg/apache/tapestry5/ioc/services/MasterObjectProvider;
+    ALOAD 1
+    ALOAD 2
+    ALOAD 3
+    ILOAD 4
+    INVOKEINTERFACE org/apache/tapestry5/ioc/services/MasterObjectProvider.provide (Ljava/lang/Class;Lorg/apache/tapestry5/ioc/AnnotationProvider;Lorg/apache/tapestry5/ioc/ObjectLocator;Z)Ljava/lang/Object;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1010
+  final reject_field_change_creator(Lorg/apache/tapestry5/ioc/ObjectCreator;)V
+    NEW java/lang/IllegalStateException
+    DUP
+    LDC "Field creator of class $MasterObjectProvider_a12c8735b51d is read-only."
+    INVOKESPECIAL java/lang/IllegalStateException.<init> (Ljava/lang/String;)V
+    ATHROW
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1010
+  final reject_field_change_token(Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;)V
+    NEW java/lang/IllegalStateException
+    DUP
+    LDC "Field token of class $MasterObjectProvider_a12c8735b51d is read-only."
+    INVOKESPECIAL java/lang/IllegalStateException.<init> (Ljava/lang/String;)V
+    ATHROW
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x2
+  private delegate()Lorg/apache/tapestry5/ioc/services/MasterObjectProvider;
+    ALOAD 0
+    GETFIELD $MasterObjectProvider_a12c8735b51d.creator : Lorg/apache/tapestry5/ioc/ObjectCreator;
+    INVOKEINTERFACE org/apache/tapestry5/ioc/ObjectCreator.createObject ()Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/services/MasterObjectProvider
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x2
+  private writeReplace()Ljava/lang/Object; throws java/io/ObjectStreamException 
+    ALOAD 0
+    GETFIELD $MasterObjectProvider_a12c8735b51d.token : Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public toString()Ljava/lang/String;
+    LDC "<Proxy for MasterObjectProvider(org.apache.tapestry5.ioc.services.MasterObjectProvider)>"
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public <init>(Lorg/apache/tapestry5/internal/plastic/StaticContext;Lorg/apache/tapestry5/plastic/InstanceContext;)V
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    ALOAD 0
+    ALOAD 1
+    ICONST_0
+    INVOKEVIRTUAL org/apache/tapestry5/internal/plastic/StaticContext.get (I)Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/ObjectCreator
+    PUTFIELD $MasterObjectProvider_a12c8735b51d.creator : Lorg/apache/tapestry5/ioc/ObjectCreator;
+    ALOAD 0
+    ALOAD 1
+    ICONST_1
+    INVOKEVIRTUAL org/apache/tapestry5/internal/plastic/StaticContext.get (I)Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/internal/ServiceProxyToken
+    PUTFIELD $MasterObjectProvider_a12c8735b51d.token : Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;
+    RETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+}
+
+18:46:51.976 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] <-- Creating proxy for service MasterObjectProvider [3.61 ms]
+18:46:51.976 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] --> Realizing service MasterObjectProvider
+18:46:51.976 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  2] --> Instantiating service MasterObjectProvider implementation via org.apache.tapestry5.ioc.internal.services.MasterObjectProviderImpl(List, OperationTracker) (at MasterObjectProviderImpl.java:33) via org.apache.tapestry5.ioc.modules.TapestryIOCModule.bind(ServiceBinder) (at TapestryIOCModule.java:50)
+18:46:51.976 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] --> Creating plan to instantiate org.apache.tapestry5.ioc.internal.services.MasterObjectProviderImpl via public org.apache.tapestry5.ioc.internal.services.MasterObjectProviderImpl(java.util.List,org.apache.tapestry5.ioc.OperationTracker)
+18:46:51.977 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  4] --> Determining injection value for parameter #1 (java.util.List)
+18:46:51.977 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  5] --> Collecting ordered configuration for service MasterObjectProvider
+18:46:51.981 [Test worker] DEBUG o.a.t.i.m.T.MasterObjectProvider - Invoking org.apache.tapestry5.ioc.modules.TapestryIOCModule.setupObjectProviders(OrderedConfiguration, ServiceOverride) (at TapestryIOCModule.java:134)
+18:46:51.982 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  6] --> Invoking org.apache.tapestry5.ioc.modules.TapestryIOCModule.setupObjectProviders(OrderedConfiguration, ServiceOverride) (at TapestryIOCModule.java:134)
+18:46:51.984 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  7] --> Determining injection value for parameter #1 (org.apache.tapestry5.ioc.OrderedConfiguration)
+18:46:51.984 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  7] <-- Determining injection value for parameter #1 (org.apache.tapestry5.ioc.OrderedConfiguration) [0.13 ms]
+18:46:51.984 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  7] --> Determining injection value for parameter #2 (org.apache.tapestry5.ioc.services.ServiceOverride)
+18:46:51.985 [Test worker] DEBUG o.a.t.i.m.T.ServiceOverride - Creating proxy for service ServiceOverride
+18:46:51.985 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  8] --> Creating proxy for service ServiceOverride
+18:46:51.987 [Test worker] DEBUG o.a.t.i.m.T.PlasticProxyFactory - Loading class $ServiceOverride_a12c8735b51e:
+// class version 49.0 (49)
+// access flags 0x1
+public class $ServiceOverride_a12c8735b51e implements org/apache/tapestry5/ioc/services/ServiceOverride java/io/Serializable  {
+
+
+  // access flags 0x12
+  private final Lorg/apache/tapestry5/ioc/ObjectCreator; creator
+
+  // access flags 0x12
+  private final Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken; token
+
+  // access flags 0x1
+  public getServiceOverrideProvider()Lorg/apache/tapestry5/ioc/ObjectProvider;
+    ALOAD 0
+    INVOKESPECIAL $ServiceOverride_a12c8735b51e.delegate ()Lorg/apache/tapestry5/ioc/services/ServiceOverride;
+    INVOKEINTERFACE org/apache/tapestry5/ioc/services/ServiceOverride.getServiceOverrideProvider ()Lorg/apache/tapestry5/ioc/ObjectProvider;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1010
+  final reject_field_change_creator(Lorg/apache/tapestry5/ioc/ObjectCreator;)V
+    NEW java/lang/IllegalStateException
+    DUP
+    LDC "Field creator of class $ServiceOverride_a12c8735b51e is read-only."
+    INVOKESPECIAL java/lang/IllegalStateException.<init> (Ljava/lang/String;)V
+    ATHROW
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1010
+  final reject_field_change_token(Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;)V
+    NEW java/lang/IllegalStateException
+    DUP
+    LDC "Field token of class $ServiceOverride_a12c8735b51e is read-only."
+    INVOKESPECIAL java/lang/IllegalStateException.<init> (Ljava/lang/String;)V
+    ATHROW
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x2
+  private delegate()Lorg/apache/tapestry5/ioc/services/ServiceOverride;
+    ALOAD 0
+    GETFIELD $ServiceOverride_a12c8735b51e.creator : Lorg/apache/tapestry5/ioc/ObjectCreator;
+    INVOKEINTERFACE org/apache/tapestry5/ioc/ObjectCreator.createObject ()Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/services/ServiceOverride
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x2
+  private writeReplace()Ljava/lang/Object; throws java/io/ObjectStreamException 
+    ALOAD 0
+    GETFIELD $ServiceOverride_a12c8735b51e.token : Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public toString()Ljava/lang/String;
+    LDC "<Proxy for ServiceOverride(org.apache.tapestry5.ioc.services.ServiceOverride)>"
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public <init>(Lorg/apache/tapestry5/internal/plastic/StaticContext;Lorg/apache/tapestry5/plastic/InstanceContext;)V
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    ALOAD 0
+    ALOAD 1
+    ICONST_0
+    INVOKEVIRTUAL org/apache/tapestry5/internal/plastic/StaticContext.get (I)Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/ObjectCreator
+    PUTFIELD $ServiceOverride_a12c8735b51e.creator : Lorg/apache/tapestry5/ioc/ObjectCreator;
+    ALOAD 0
+    ALOAD 1
+    ICONST_1
+    INVOKEVIRTUAL org/apache/tapestry5/internal/plastic/StaticContext.get (I)Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/internal/ServiceProxyToken
+    PUTFIELD $ServiceOverride_a12c8735b51e.token : Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;
+    RETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+}
+
+18:46:51.988 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  8] <-- Creating proxy for service ServiceOverride [3.27 ms]
+18:46:51.988 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  7] <-- Determining injection value for parameter #2 (org.apache.tapestry5.ioc.services.ServiceOverride) [3.80 ms]
+18:46:51.990 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  7] --> Autobuilding instance of class org.apache.tapestry5.ioc.internal.services.ValueObjectProvider
+18:46:51.991 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  8] --> Creating plan to instantiate org.apache.tapestry5.ioc.internal.services.ValueObjectProvider via public org.apache.tapestry5.ioc.internal.services.ValueObjectProvider(org.apache.tapestry5.ioc.services.SymbolSource,org.apache.tapestry5.ioc.services.TypeCoercer)
+18:46:51.992 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  9] --> Determining injection value for parameter #1 (org.apache.tapestry5.ioc.services.SymbolSource)
+18:46:51.992 [Test worker] DEBUG o.a.t.i.m.T.SymbolSource - Creating proxy for service SymbolSource
+18:46:51.993 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [ 10] --> Creating proxy for service SymbolSource
+18:46:51.993 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [ 11] --> Obtaining AspectDecorator service
+18:46:51.994 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [ 11] <-- Obtaining AspectDecorator service [0.18 ms]
+18:46:51.995 [Test worker] DEBUG o.a.t.i.m.T.PlasticProxyFactory - Loading class $SymbolSource_a12c8735b51f:
+// class version 49.0 (49)
+// access flags 0x1
+public class $SymbolSource_a12c8735b51f implements org/apache/tapestry5/ioc/services/SymbolSource java/io/Serializable  {
+
+
+  // access flags 0x12
+  private final Lorg/apache/tapestry5/ioc/ObjectCreator; creator
+
+  // access flags 0x12
+  private final Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken; token
+
+  // access flags 0x1
+  public expandSymbols(Ljava/lang/String;)Ljava/lang/String;
+    ALOAD 0
+    INVOKESPECIAL $SymbolSource_a12c8735b51f.delegate ()Lorg/apache/tapestry5/ioc/services/SymbolSource;
+    ALOAD 1
+    INVOKEINTERFACE org/apache/tapestry5/ioc/services/SymbolSource.expandSymbols (Ljava/lang/String;)Ljava/lang/String;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public valueForSymbol(Ljava/lang/String;)Ljava/lang/String;
+    ALOAD 0
+    INVOKESPECIAL $SymbolSource_a12c8735b51f.delegate ()Lorg/apache/tapestry5/ioc/services/SymbolSource;
+    ALOAD 1
+    INVOKEINTERFACE org/apache/tapestry5/ioc/services/SymbolSource.valueForSymbol (Ljava/lang/String;)Ljava/lang/String;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1010
+  final reject_field_change_creator(Lorg/apache/tapestry5/ioc/ObjectCreator;)V
+    NEW java/lang/IllegalStateException
+    DUP
+    LDC "Field creator of class $SymbolSource_a12c8735b51f is read-only."
+    INVOKESPECIAL java/lang/IllegalStateException.<init> (Ljava/lang/String;)V
+    ATHROW
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1010
+  final reject_field_change_token(Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;)V
+    NEW java/lang/IllegalStateException
+    DUP
+    LDC "Field token of class $SymbolSource_a12c8735b51f is read-only."
+    INVOKESPECIAL java/lang/IllegalStateException.<init> (Ljava/lang/String;)V
+    ATHROW
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x2
+  private delegate()Lorg/apache/tapestry5/ioc/services/SymbolSource;
+    ALOAD 0
+    GETFIELD $SymbolSource_a12c8735b51f.creator : Lorg/apache/tapestry5/ioc/ObjectCreator;
+    INVOKEINTERFACE org/apache/tapestry5/ioc/ObjectCreator.createObject ()Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/services/SymbolSource
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x2
+  private writeReplace()Ljava/lang/Object; throws java/io/ObjectStreamException 
+    ALOAD 0
+    GETFIELD $SymbolSource_a12c8735b51f.token : Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public toString()Ljava/lang/String;
+    LDC "<Proxy for SymbolSource(org.apache.tapestry5.ioc.services.SymbolSource)>"
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public <init>(Lorg/apache/tapestry5/internal/plastic/StaticContext;Lorg/apache/tapestry5/plastic/InstanceContext;)V
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    ALOAD 0
+    ALOAD 1
+    ICONST_0
+    INVOKEVIRTUAL org/apache/tapestry5/internal/plastic/StaticContext.get (I)Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/ObjectCreator
+    PUTFIELD $SymbolSource_a12c8735b51f.creator : Lorg/apache/tapestry5/ioc/ObjectCreator;
+    ALOAD 0
+    ALOAD 1
+    ICONST_1
+    INVOKEVIRTUAL org/apache/tapestry5/internal/plastic/StaticContext.get (I)Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/internal/ServiceProxyToken
+    PUTFIELD $SymbolSource_a12c8735b51f.token : Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;
+    RETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+}
+
+18:46:51.997 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [ 10] <-- Creating proxy for service SymbolSource [3.99 ms]
+18:46:51.997 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  9] <-- Determining injection value for parameter #1 (org.apache.tapestry5.ioc.services.SymbolSource) [4.53 ms]
+18:46:51.997 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  9] --> Determining injection value for parameter #2 (org.apache.tapestry5.ioc.services.TypeCoercer)
+18:46:51.997 [Test worker] DEBUG o.a.t.i.m.T.TypeCoercer - Creating proxy for service TypeCoercer
+18:46:51.997 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [ 10] --> Creating proxy for service TypeCoercer
+18:46:51.999 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [ 11] --> Obtaining AspectDecorator service
+18:46:52.000 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [ 11] <-- Obtaining AspectDecorator service [0.20 ms]
+18:46:52.001 [Test worker] DEBUG o.a.t.i.m.T.PlasticProxyFactory - Loading class $TypeCoercer_a12c8735b520:
+// class version 49.0 (49)
+// access flags 0x1
+public class $TypeCoercer_a12c8735b520 implements org/apache/tapestry5/ioc/services/TypeCoercer java/io/Serializable  {
+
+
+  // access flags 0x12
+  private final Lorg/apache/tapestry5/ioc/ObjectCreator; creator
+
+  // access flags 0x12
+  private final Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken; token
+
+  // access flags 0x1
+  public coerce(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
+    ALOAD 0
+    INVOKESPECIAL $TypeCoercer_a12c8735b520.delegate ()Lorg/apache/tapestry5/ioc/services/TypeCoercer;
+    ALOAD 1
+    ALOAD 2
+    INVOKEINTERFACE org/apache/tapestry5/ioc/services/TypeCoercer.coerce (Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public explain(Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/String;
+    ALOAD 0
+    INVOKESPECIAL $TypeCoercer_a12c8735b520.delegate ()Lorg/apache/tapestry5/ioc/services/TypeCoercer;
+    ALOAD 1
+    ALOAD 2
+    INVOKEINTERFACE org/apache/tapestry5/ioc/services/TypeCoercer.explain (Ljava/lang/Class;Ljava/lang/Class;)Ljava/lang/String;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public getCoercion(Ljava/lang/Class;Ljava/lang/Class;)Lorg/apache/tapestry5/ioc/services/Coercion;
+    ALOAD 0
+    INVOKESPECIAL $TypeCoercer_a12c8735b520.delegate ()Lorg/apache/tapestry5/ioc/services/TypeCoercer;
+    ALOAD 1
+    ALOAD 2
+    INVOKEINTERFACE org/apache/tapestry5/ioc/services/TypeCoercer.getCoercion (Ljava/lang/Class;Ljava/lang/Class;)Lorg/apache/tapestry5/ioc/services/Coercion;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public clearCache()V
+    ALOAD 0
+    INVOKESPECIAL $TypeCoercer_a12c8735b520.delegate ()Lorg/apache/tapestry5/ioc/services/TypeCoercer;
+    INVOKEINTERFACE org/apache/tapestry5/ioc/services/TypeCoercer.clearCache ()V
+    RETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1010
+  final reject_field_change_creator(Lorg/apache/tapestry5/ioc/ObjectCreator;)V
+    NEW java/lang/IllegalStateException
+    DUP
+    LDC "Field creator of class $TypeCoercer_a12c8735b520 is read-only."
+    INVOKESPECIAL java/lang/IllegalStateException.<init> (Ljava/lang/String;)V
+    ATHROW
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1010
+  final reject_field_change_token(Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;)V
+    NEW java/lang/IllegalStateException
+    DUP
+    LDC "Field token of class $TypeCoercer_a12c8735b520 is read-only."
+    INVOKESPECIAL java/lang/IllegalStateException.<init> (Ljava/lang/String;)V
+    ATHROW
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x2
+  private delegate()Lorg/apache/tapestry5/ioc/services/TypeCoercer;
+    ALOAD 0
+    GETFIELD $TypeCoercer_a12c8735b520.creator : Lorg/apache/tapestry5/ioc/ObjectCreator;
+    INVOKEINTERFACE org/apache/tapestry5/ioc/ObjectCreator.createObject ()Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/services/TypeCoercer
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x2
+  private writeReplace()Ljava/lang/Object; throws java/io/ObjectStreamException 
+    ALOAD 0
+    GETFIELD $TypeCoercer_a12c8735b520.token : Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public toString()Ljava/lang/String;
+    LDC "<Proxy for TypeCoercer(org.apache.tapestry5.ioc.services.TypeCoercer)>"
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public <init>(Lorg/apache/tapestry5/internal/plastic/StaticContext;Lorg/apache/tapestry5/plastic/InstanceContext;)V
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    ALOAD 0
+    ALOAD 1
+    ICONST_0
+    INVOKEVIRTUAL org/apache/tapestry5/internal/plastic/StaticContext.get (I)Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/ObjectCreator
+    PUTFIELD $TypeCoercer_a12c8735b520.creator : Lorg/apache/tapestry5/ioc/ObjectCreator;
+    ALOAD 0
+    ALOAD 1
+    ICONST_1
+    INVOKEVIRTUAL org/apache/tapestry5/internal/plastic/StaticContext.get (I)Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/internal/ServiceProxyToken
+    PUTFIELD $TypeCoercer_a12c8735b520.token : Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;
+    RETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+}
+
+18:46:52.003 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [ 10] <-- Creating proxy for service TypeCoercer [5.84 ms]
+18:46:52.003 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  9] <-- Determining injection value for parameter #2 (org.apache.tapestry5.ioc.services.TypeCoercer) [6.31 ms]
+18:46:52.004 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  8] <-- Creating plan to instantiate org.apache.tapestry5.ioc.internal.services.ValueObjectProvider via public org.apache.tapestry5.ioc.internal.services.ValueObjectProvider(org.apache.tapestry5.ioc.services.SymbolSource,org.apache.tapestry5.ioc.services.TypeCoercer) [12.58 ms]
+18:46:52.004 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  8] --> Invoking constructor org.apache.tapestry5.ioc.internal.services.ValueObjectProvider(SymbolSource, TypeCoercer) (at ValueObjectProvider.java:40) (for service 'MasterObjectProvider')
+18:46:52.004 [Test worker] DEBUG o.a.t.i.m.T.MasterObjectProvider - Invoking constructor org.apache.tapestry5.ioc.internal.services.ValueObjectProvider(SymbolSource, TypeCoercer) (at ValueObjectProvider.java:40) (for service 'MasterObjectProvider')
+18:46:52.004 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  8] <-- Invoking constructor org.apache.tapestry5.ioc.internal.services.ValueObjectProvider(SymbolSource, TypeCoercer) (at ValueObjectProvider.java:40) (for service 'MasterObjectProvider') [0.17 ms]
+18:46:52.004 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  7] <-- Autobuilding instance of class org.apache.tapestry5.ioc.internal.services.ValueObjectProvider [13.95 ms]
+18:46:52.005 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  7] --> Autobuilding instance of class org.apache.tapestry5.ioc.internal.services.SymbolObjectProvider
+18:46:52.005 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  8] --> Creating plan to instantiate org.apache.tapestry5.ioc.internal.services.SymbolObjectProvider via public org.apache.tapestry5.ioc.internal.services.SymbolObjectProvider(org.apache.tapestry5.ioc.services.SymbolSource,org.apache.tapestry5.ioc.services.TypeCoercer)
+18:46:52.006 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  9] --> Determining injection value for parameter #1 (org.apache.tapestry5.ioc.services.SymbolSource)
+18:46:52.006 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  9] <-- Determining injection value for parameter #1 (org.apache.tapestry5.ioc.services.SymbolSource) [0.20 ms]
+18:46:52.006 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  9] --> Determining injection value for parameter #2 (org.apache.tapestry5.ioc.services.TypeCoercer)
+18:46:52.006 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  9] <-- Determining injection value for parameter #2 (org.apache.tapestry5.ioc.services.TypeCoercer) [0.16 ms]
+18:46:52.007 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  8] <-- Creating plan to instantiate org.apache.tapestry5.ioc.internal.services.SymbolObjectProvider via public org.apache.tapestry5.ioc.internal.services.SymbolObjectProvider(org.apache.tapestry5.ioc.services.SymbolSource,org.apache.tapestry5.ioc.services.TypeCoercer) [1.01 ms]
+18:46:52.007 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  8] --> Invoking constructor org.apache.tapestry5.ioc.internal.services.SymbolObjectProvider(SymbolSource, TypeCoercer) (at SymbolObjectProvider.java:38) (for service 'MasterObjectProvider')
+18:46:52.007 [Test worker] DEBUG o.a.t.i.m.T.MasterObjectProvider - Invoking constructor org.apache.tapestry5.ioc.internal.services.SymbolObjectProvider(SymbolSource, TypeCoercer) (at SymbolObjectProvider.java:38) (for service 'MasterObjectProvider')
+18:46:52.007 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  8] <-- Invoking constructor org.apache.tapestry5.ioc.internal.services.SymbolObjectProvider(SymbolSource, TypeCoercer) (at SymbolObjectProvider.java:38) (for service 'MasterObjectProvider') [0.16 ms]
+18:46:52.007 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  7] <-- Autobuilding instance of class org.apache.tapestry5.ioc.internal.services.SymbolObjectProvider [2.33 ms]
+18:46:52.008 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  6] <-- Invoking org.apache.tapestry5.ioc.modules.TapestryIOCModule.setupObjectProviders(OrderedConfiguration, ServiceOverride) (at TapestryIOCModule.java:134) [26.01 ms]
+18:46:52.010 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  5] <-- Collecting ordered configuration for service MasterObjectProvider [33.18 ms]
+18:46:52.010 [Test worker] DEBUG o.a.t.i.m.T.MasterObjectProvider - Constructed configuration: [org.apache.tapestry5.ioc.internal.services.ValueObjectProvider@e65d6f, org.apache.tapestry5.ioc.internal.services.SymbolObjectProvider@409e, org.apache.tapestry5.ioc.internal.services.AutobuildObjectProvider@e6120d, org.apache.tapestry5.ioc.modules.TapestryIOCModule$2@ab39e5, org.apache.tapestry5.ioc.internal.RegistryImpl$6@1660da2]
+18:46:52.010 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  4] <-- Determining injection value for parameter #1 (java.util.List) [33.60 ms]
+18:46:52.010 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  4] --> Determining injection value for parameter #2 (org.apache.tapestry5.ioc.OperationTracker)
+18:46:52.011 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  4] <-- Determining injection value for parameter #2 (org.apache.tapestry5.ioc.OperationTracker) [0.09 ms]
+18:46:52.011 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] <-- Creating plan to instantiate org.apache.tapestry5.ioc.internal.services.MasterObjectProviderImpl via public org.apache.tapestry5.ioc.internal.services.MasterObjectProviderImpl(java.util.List,org.apache.tapestry5.ioc.OperationTracker) [34.30 ms]
+18:46:52.011 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] --> Invoking constructor org.apache.tapestry5.ioc.internal.services.MasterObjectProviderImpl(List, OperationTracker) (at MasterObjectProviderImpl.java:33) via org.apache.tapestry5.ioc.modules.TapestryIOCModule.bind(ServiceBinder) (at TapestryIOCModule.java:50) (for service 'MasterObjectProvider')
+18:46:52.011 [Test worker] DEBUG o.a.t.i.m.T.MasterObjectProvider - Invoking constructor org.apache.tapestry5.ioc.internal.services.MasterObjectProviderImpl(List, OperationTracker) (at MasterObjectProviderImpl.java:33) via org.apache.tapestry5.ioc.modules.TapestryIOCModule.bind(ServiceBinder) (at TapestryIOCModule.java:50) (for service 'MasterObjectProvider')
+18:46:52.012 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] <-- Invoking constructor org.apache.tapestry5.ioc.internal.services.MasterObjectProviderImpl(List, OperationTracker) (at MasterObjectProviderImpl.java:33) via org.apache.tapestry5.ioc.modules.TapestryIOCModule.bind(ServiceBinder) (at TapestryIOCModule.java:50) (for service 'MasterObjectProvider') [0.57 ms]
+18:46:52.012 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  2] <-- Instantiating service MasterObjectProvider implementation via org.apache.tapestry5.ioc.internal.services.MasterObjectProviderImpl(List, OperationTracker) (at MasterObjectProviderImpl.java:33) via org.apache.tapestry5.ioc.modules.TapestryIOCModule.bind(ServiceBinder) (at TapestryIOCModule.java:50) [35.39 ms]
+18:46:52.012 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] <-- Realizing service MasterObjectProvider [35.62 ms]
+18:46:52.012 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] --> Resolving object of type org.pac.bootstraplab.services.db.EntityIdGenerator using MasterObjectProvider
+18:46:52.013 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  2] --> Realizing service ServiceOverride
+18:46:52.013 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] --> Instantiating service ServiceOverride implementation via org.apache.tapestry5.ioc.internal.services.ServiceOverrideImpl(Map) (at ServiceOverrideImpl.java:31) via org.apache.tapestry5.ioc.modules.TapestryIOCModule.bind(ServiceBinder) (at TapestryIOCModule.java:50)
+18:46:52.013 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  4] --> Creating plan to instantiate org.apache.tapestry5.ioc.internal.services.ServiceOverrideImpl via public org.apache.tapestry5.ioc.internal.services.ServiceOverrideImpl(java.util.Map)
+18:46:52.014 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  5] --> Determining injection value for parameter #1 (java.util.Map)
+18:46:52.014 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  6] --> Collecting mapped configuration for service ServiceOverride
+18:46:52.014 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  6] <-- Collecting mapped configuration for service ServiceOverride [0.15 ms]
+18:46:52.014 [Test worker] DEBUG o.a.t.i.m.T.ServiceOverride - Constructed configuration: {}
+18:46:52.015 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  5] <-- Determining injection value for parameter #1 (java.util.Map) [0.88 ms]
+18:46:52.015 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  4] <-- Creating plan to instantiate org.apache.tapestry5.ioc.internal.services.ServiceOverrideImpl via public org.apache.tapestry5.ioc.internal.services.ServiceOverrideImpl(java.util.Map) [1.28 ms]
+18:46:52.015 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  4] --> Invoking constructor org.apache.tapestry5.ioc.internal.services.ServiceOverrideImpl(Map) (at ServiceOverrideImpl.java:31) via org.apache.tapestry5.ioc.modules.TapestryIOCModule.bind(ServiceBinder) (at TapestryIOCModule.java:50) (for service 'ServiceOverride')
+18:46:52.015 [Test worker] DEBUG o.a.t.i.m.T.ServiceOverride - Invoking constructor org.apache.tapestry5.ioc.internal.services.ServiceOverrideImpl(Map) (at ServiceOverrideImpl.java:31) via org.apache.tapestry5.ioc.modules.TapestryIOCModule.bind(ServiceBinder) (at TapestryIOCModule.java:50) (for service 'ServiceOverride')
+18:46:52.015 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  4] <-- Invoking constructor org.apache.tapestry5.ioc.internal.services.ServiceOverrideImpl(Map) (at ServiceOverrideImpl.java:31) via org.apache.tapestry5.ioc.modules.TapestryIOCModule.bind(ServiceBinder) (at TapestryIOCModule.java:50) (for service 'ServiceOverride') [0.16 ms]
+18:46:52.015 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] <-- Instantiating service ServiceOverride implementation via org.apache.tapestry5.ioc.internal.services.ServiceOverrideImpl(Map) (at ServiceOverrideImpl.java:31) via org.apache.tapestry5.ioc.modules.TapestryIOCModule.bind(ServiceBinder) (at TapestryIOCModule.java:50) [1.91 ms]
+18:46:52.015 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  2] <-- Realizing service ServiceOverride [2.17 ms]
+18:46:52.016 [Test worker] DEBUG o.p.t.m.D.EntityIdGenerator - Creating proxy for service EntityIdGenerator
+18:46:52.016 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  2] --> Creating proxy for service EntityIdGenerator
+18:46:52.018 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] --> Obtaining AspectDecorator service
+18:46:52.018 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] <-- Obtaining AspectDecorator service [0.20 ms]
+18:46:52.019 [Test worker] DEBUG o.a.t.i.m.T.PlasticProxyFactory - Loading class $EntityIdGenerator_a12c8735b521:
+// class version 49.0 (49)
+// access flags 0x1
+public class $EntityIdGenerator_a12c8735b521 implements org/pac/bootstraplab/services/db/EntityIdGenerator java/io/Serializable  {
+
+
+  // access flags 0x12
+  private final Lorg/apache/tapestry5/ioc/ObjectCreator; creator
+
+  // access flags 0x12
+  private final Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken; token
+
+  // access flags 0x1
+  public generateFor(Ljava/lang/Object;)Lorg/pac/bootstraplab/models/uid/UID;
+    ALOAD 0
+    INVOKESPECIAL $EntityIdGenerator_a12c8735b521.delegate ()Lorg/pac/bootstraplab/services/db/EntityIdGenerator;
+    ALOAD 1
+    INVOKEINTERFACE org/pac/bootstraplab/services/db/EntityIdGenerator.generateFor (Ljava/lang/Object;)Lorg/pac/bootstraplab/models/uid/UID;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public generateFrom(Ljava/lang/String;)Lorg/pac/bootstraplab/models/uid/UID;
+    ALOAD 0
+    INVOKESPECIAL $EntityIdGenerator_a12c8735b521.delegate ()Lorg/pac/bootstraplab/services/db/EntityIdGenerator;
+    ALOAD 1
+    INVOKEINTERFACE org/pac/bootstraplab/services/db/EntityIdGenerator.generateFrom (Ljava/lang/String;)Lorg/pac/bootstraplab/models/uid/UID;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1010
+  final reject_field_change_creator(Lorg/apache/tapestry5/ioc/ObjectCreator;)V
+    NEW java/lang/IllegalStateException
+    DUP
+    LDC "Field creator of class $EntityIdGenerator_a12c8735b521 is read-only."
+    INVOKESPECIAL java/lang/IllegalStateException.<init> (Ljava/lang/String;)V
+    ATHROW
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1010
+  final reject_field_change_token(Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;)V
+    NEW java/lang/IllegalStateException
+    DUP
+    LDC "Field token of class $EntityIdGenerator_a12c8735b521 is read-only."
+    INVOKESPECIAL java/lang/IllegalStateException.<init> (Ljava/lang/String;)V
+    ATHROW
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x2
+  private delegate()Lorg/pac/bootstraplab/services/db/EntityIdGenerator;
+    ALOAD 0
+    GETFIELD $EntityIdGenerator_a12c8735b521.creator : Lorg/apache/tapestry5/ioc/ObjectCreator;
+    INVOKEINTERFACE org/apache/tapestry5/ioc/ObjectCreator.createObject ()Ljava/lang/Object;
+    CHECKCAST org/pac/bootstraplab/services/db/EntityIdGenerator
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x2
+  private writeReplace()Ljava/lang/Object; throws java/io/ObjectStreamException 
+    ALOAD 0
+    GETFIELD $EntityIdGenerator_a12c8735b521.token : Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public toString()Ljava/lang/String;
+    LDC "<Proxy for EntityIdGenerator(org.pac.bootstraplab.services.db.EntityIdGenerator)>"
+    ARETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+
+  // access flags 0x1
+  public <init>(Lorg/apache/tapestry5/internal/plastic/StaticContext;Lorg/apache/tapestry5/plastic/InstanceContext;)V
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+    ALOAD 0
+    ALOAD 1
+    ICONST_0
+    INVOKEVIRTUAL org/apache/tapestry5/internal/plastic/StaticContext.get (I)Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/ObjectCreator
+    PUTFIELD $EntityIdGenerator_a12c8735b521.creator : Lorg/apache/tapestry5/ioc/ObjectCreator;
+    ALOAD 0
+    ALOAD 1
+    ICONST_1
+    INVOKEVIRTUAL org/apache/tapestry5/internal/plastic/StaticContext.get (I)Ljava/lang/Object;
+    CHECKCAST org/apache/tapestry5/ioc/internal/ServiceProxyToken
+    PUTFIELD $EntityIdGenerator_a12c8735b521.token : Lorg/apache/tapestry5/ioc/internal/ServiceProxyToken;
+    RETURN
+    MAXSTACK = 0
+    MAXLOCALS = 0
+}
+
+18:46:52.021 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  2] <-- Creating proxy for service EntityIdGenerator [4.88 ms]
+18:46:52.021 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] <-- Resolving object of type org.pac.bootstraplab.services.db.EntityIdGenerator using MasterObjectProvider [8.78 ms]
+18:46:52.051 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] --> Realizing service EntityIdGenerator
+18:46:52.051 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  2] --> Instantiating service EntityIdGenerator implementation via org.pac.bootstraplab.services.db.EntityIdGeneratorImpl() (at EntityIdGeneratorImpl.java:11) via org.pac.test.modules.DBTestModule.bind(ServiceBinder) (at DBTestModule.java:31)
+18:46:52.051 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] --> Creating plan to instantiate org.pac.bootstraplab.services.db.EntityIdGeneratorImpl via public org.pac.bootstraplab.services.db.EntityIdGeneratorImpl()
+18:46:52.052 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  4] --> Calculating possible injection value for field org.pac.bootstraplab.services.db.EntityIdGeneratorImpl.logger (org.slf4j.Logger)
+18:46:52.059 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  4] <-- Calculating possible injection value for field org.pac.bootstraplab.services.db.EntityIdGeneratorImpl.logger (org.slf4j.Logger) [6.84 ms]
+18:46:52.059 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] <-- Creating plan to instantiate org.pac.bootstraplab.services.db.EntityIdGeneratorImpl via public org.pac.bootstraplab.services.db.EntityIdGeneratorImpl() [8.12 ms]
+18:46:52.059 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] --> Invoking constructor org.pac.bootstraplab.services.db.EntityIdGeneratorImpl() (at EntityIdGeneratorImpl.java:11) via org.pac.test.modules.DBTestModule.bind(ServiceBinder) (at DBTestModule.java:31) (for service 'EntityIdGenerator')
+18:46:52.059 [Test worker] DEBUG o.p.t.m.D.EntityIdGenerator - Invoking constructor org.pac.bootstraplab.services.db.EntityIdGeneratorImpl() (at EntityIdGeneratorImpl.java:11) via org.pac.test.modules.DBTestModule.bind(ServiceBinder) (at DBTestModule.java:31) (for service 'EntityIdGenerator')
+18:46:52.060 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] <-- Invoking constructor org.pac.bootstraplab.services.db.EntityIdGeneratorImpl() (at EntityIdGeneratorImpl.java:11) via org.pac.test.modules.DBTestModule.bind(ServiceBinder) (at DBTestModule.java:31) (for service 'EntityIdGenerator') [0.16 ms]
+18:46:52.060 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] --> Injecting Logger[org.pac.test.modules.DBTestModule.EntityIdGenerator] into field logger of class org.pac.bootstraplab.services.db.EntityIdGeneratorImpl.
+18:46:52.060 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  3] <-- Injecting Logger[org.pac.test.modules.DBTestModule.EntityIdGenerator] into field logger of class org.pac.bootstraplab.services.db.EntityIdGeneratorImpl. [0.13 ms]
+18:46:52.060 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  2] <-- Instantiating service EntityIdGenerator implementation via org.pac.bootstraplab.services.db.EntityIdGeneratorImpl() (at EntityIdGeneratorImpl.java:11) via org.pac.test.modules.DBTestModule.bind(ServiceBinder) (at DBTestModule.java:31) [9.49 ms]
+18:46:52.061 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] <-- Realizing service EntityIdGenerator [9.92 ms]
+18:46:52.069 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] --> Resolving object of type org.pac.bootstraplab.services.db.EntityIdGenerator using MasterObjectProvider
+18:46:52.069 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] <-- Resolving object of type org.pac.bootstraplab.services.db.EntityIdGenerator using MasterObjectProvider [0.26 ms]
+18:46:52.093 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] --> Resolving object of type org.pac.bootstraplab.services.db.EntityIdGenerator using MasterObjectProvider
+18:46:52.093 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] <-- Resolving object of type org.pac.bootstraplab.services.db.EntityIdGenerator using MasterObjectProvider [0.27 ms]
+18:46:52.098 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] --> Resolving object of type org.pac.bootstraplab.services.db.EntityIdGenerator using MasterObjectProvider
+18:46:52.099 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] <-- Resolving object of type org.pac.bootstraplab.services.db.EntityIdGenerator using MasterObjectProvider [0.26 ms]
+18:46:52.128 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] --> Resolving object of type org.pac.bootstraplab.services.db.EntityIdGenerator using MasterObjectProvider
+18:46:52.128 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] <-- Resolving object of type org.pac.bootstraplab.services.db.EntityIdGenerator using MasterObjectProvider [0.30 ms]
+18:46:52.129 [Test worker] ERROR o.p.t.m.D.EntityIdGenerator - Invalid full UID string provided: sdakdmsad
+18:46:52.130 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] --> Resolving object of type org.pac.bootstraplab.services.db.EntityIdGenerator using MasterObjectProvider
+18:46:52.130 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] <-- Resolving object of type org.pac.bootstraplab.services.db.EntityIdGenerator using MasterObjectProvider [0.24 ms]
+18:46:52.134 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] --> Resolving object of type org.pac.bootstraplab.services.db.EntityIdGenerator using MasterObjectProvider
+18:46:52.134 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] <-- Resolving object of type org.pac.bootstraplab.services.db.EntityIdGenerator using MasterObjectProvider [0.24 ms]
+18:46:52.135 [Test worker] ERROR o.p.t.m.D.EntityIdGenerator - Invalid full UID string provided: 
+18:46:52.135 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] --> Resolving object of type org.pac.bootstraplab.services.db.EntityIdGenerator using MasterObjectProvider
+18:46:52.135 [Test worker] DEBUG org.apache.tapestry5.ioc.Registry - [  1] <-- Resolving object of type org.pac.bootstraplab.services.db.EntityIdGenerator using MasterObjectProvider [0.19 ms]
+18:46:52.136 [Test worker] ERROR o.p.t.m.D.EntityIdGenerator - Invalid full UID string provided: sdadsad-dsadsadsa-dsadsad-dsadsa-dsadsa
+]]></system-out>
+  <system-err><![CDATA[TEST-56598615.713b.4dc1.9dbe.4e4c9019f3ba
+]]></system-err>
+</testsuite>

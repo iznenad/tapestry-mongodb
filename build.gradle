@@ -1,0 +1,85 @@
+
+	apply plugin: "java"
+	apply plugin: "groovy"
+	
+	sourceCompatibility = "1.7"
+	targetCompatibility = "1.7"
+
+	group = "org.pac"
+	version = "1.0-SNAPSHOT"
+
+	repositories {
+		mavenCentral()
+
+		// All things JBoss/Hibernate
+		mavenRepo name: "JBoss", url: "http://repository.jboss.org/nexus/content/groups/public/"
+
+		// For stable versions of the tapx libraries
+		mavenRepo name: "HLS", url: "http://howardlewisship.com/repository/"
+
+		// For non-stable versions of the tapx libraries
+		mavenRepo name: "HLS Snapshots", url: "http://howardlewisship.com/snapshot-repository/"
+
+		// For access to Apache Staging (Preview) packages
+		mavenRepo name: "Apache Staging", url: "https://repository.apache.org/content/groups/staging"
+	}
+
+	uploadArchives {
+		repositories {
+			mavenLocal()
+		}
+	}
+	// This simulates Maven's "provided" scope, until it is officially supported by Gradle
+	// See http://jira.codehaus.org/browse/GRADLE-784
+
+	configurations { provided }
+
+	sourceSets {
+		main { compileClasspath += configurations.provided }
+		test {
+			compileClasspath += configurations.provided
+			runtimeClasspath += configurations.provided
+		}
+	}
+
+	dependencies {
+
+		compile "org.apache.tapestry:tapestry-core:5.4-alpha-22"
+		compile 'org.mongodb:mongo-java-driver:2.11.3'
+
+
+		groovy "org.codehaus.groovy:groovy-all:2.0.7"
+		testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
+		testCompile 'org.spockframework:spock-tapestry:0.7-groovy-2.0'
+
+		// optional dependencies for using Spock
+		testRuntime "cglib:cglib-nodep:2.2.2"          // allows mocking of classes (in addition to interfaces)
+		testRuntime "org.objenesis:objenesis:1.2"    // allows mocking of classes without default constructor (together with CGLIB)
+
+
+		compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.2'
+		compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.0.9'
+		compile group: 'ch.qos.logback', name: 'logback-core', version: '1.0.9'
+
+		compile "org.apache.commons:commons-lang3:3.1"
+
+	}
+
+	test {
+		useJUnit()
+
+		systemProperties["tapestry.service-reloading-enabled"] = "false"
+		systemProperties["tapestry.execution-mode"] = "development"
+
+		maxHeapSize = "600M"
+
+		jvmArgs("-XX:MaxPermSize=256M")
+
+		enableAssertions = true
+	}
+
+	task(console, dependsOn: 'classes', type: JavaExec) {
+		main = 'groovy.ui.Console'
+		classpath = sourceSets.main.runtimeClasspath
+	}
+	task wrapper(type: Wrapper) { gradleVersion = '1.9' }

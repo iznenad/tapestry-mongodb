@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta httpEquiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Test results - Class org.pac.bootraplab.services.db.fetch.MongoFetchCriteriaSpec</title>
+<link href="base-style.css" rel="stylesheet" type="text/css"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<script src="report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class org.pac.bootraplab.services.db.fetch.MongoFetchCriteriaSpec</h1>
+<div class="breadcrumbs">
+<a href="index.html">all</a> &gt; 
+<a href="org.pac.bootraplab.services.db.fetch.html">org.pac.bootraplab.services.db.fetch</a> &gt; MongoFetchCriteriaSpec</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">7</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">7</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.136s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">0%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="assert and"></a>
+<h3 class="failures">assert and</h3>
+<span class="code">
+<pre>groovy.lang.MissingMethodException: No signature of method: org.pac.bootstraplab.services.db.criteria.MongoFetchCriteria.and() is applicable for argument types: () values: []
+Possible solutions: and(java.lang.String, java.lang.Object), any(), any(groovy.lang.Closure), find(), in([Ljava.lang.Object;), find(groovy.lang.Closure)
+	at org.pac.bootraplab.services.db.fetch.MongoFetchCriteriaSpec.assert and(MongoFetchCriteriaSpec.groovy:63)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="assert complex query (where and or with greater/less then)"></a>
+<h3 class="failures">assert complex query (where and or with greater/less then)</h3>
+<span class="code">
+<pre>groovy.lang.MissingMethodException: No signature of method: org.pac.bootstraplab.services.db.criteria.MongoFetchCriteria.and() is applicable for argument types: () values: []
+Possible solutions: and(java.lang.String, java.lang.Object), any(), any(groovy.lang.Closure), find(), in([Ljava.lang.Object;), find(groovy.lang.Closure)
+	at org.pac.bootraplab.services.db.fetch.MongoFetchCriteriaSpec.assert complex query (where and or with greater/less then)(MongoFetchCriteriaSpec.groovy:74)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="assert greater then"></a>
+<h3 class="failures">assert greater then</h3>
+<span class="code">
+<pre>Condition not satisfied:
+
+criteria.dbObject() == new BasicDBObject(&quot;gravity&quot;, new BasicDBObject('$gt', &quot;9.81&quot;))
+|        |          |  |                            |
+|        |          |  [gravity:[$gt:9.81]]         [$gt:9.81]
+|        |          false
+|        [$query:[gravity:[$gt:9.81]]]
+org.pac.bootstraplab.services.db.criteria.MongoFetchCriteria@5c05bd
+
+	at org.pac.bootraplab.services.db.fetch.MongoFetchCriteriaSpec.assert greater then(MongoFetchCriteriaSpec.groovy:48)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="assert in"></a>
+<h3 class="failures">assert in</h3>
+<span class="code">
+<pre>Condition not satisfied:
+
+criteria.dbObject() == new BasicDBObject().append(&quot;hero&quot;, new BasicDBObject('$in', [&quot;superman&quot;, &quot;batman&quot;, &quot;hulk&quot;]))
+|        |          |  |                   |              |
+|        |          |  |                   |              [$in:[superman, batman, hulk]]
+|        |          |  |                   [hero:[$in:[superman, batman, hulk]]]
+|        |          |  [hero:[$in:[superman, batman, hulk]]]
+|        |          false
+|        [$query:[hero:[$in:[superman, batman, hulk]]]]
+org.pac.bootstraplab.services.db.criteria.MongoFetchCriteria@12ac433
+
+	at org.pac.bootraplab.services.db.fetch.MongoFetchCriteriaSpec.assert in(MongoFetchCriteriaSpec.groovy:40)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="assert less then"></a>
+<h3 class="failures">assert less then</h3>
+<span class="code">
+<pre>Condition not satisfied:
+
+criteria.dbObject() == new BasicDBObject(&quot;gravity&quot;, new BasicDBObject('$lt', &quot;9.81&quot;))
+|        |          |  |                            |
+|        |          |  [gravity:[$lt:9.81]]         [$lt:9.81]
+|        |          false
+|        [$query:[gravity:[$lt:9.81]]]
+org.pac.bootstraplab.services.db.criteria.MongoFetchCriteria@4b8122
+
+	at org.pac.bootraplab.services.db.fetch.MongoFetchCriteriaSpec.assert less then(MongoFetchCriteriaSpec.groovy:58)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="assert or"></a>
+<h3 class="failures">assert or</h3>
+<span class="code">
+<pre>groovy.lang.MissingMethodException: No signature of method: org.pac.bootstraplab.services.db.criteria.MongoFetchCriteria.and() is applicable for argument types: () values: []
+Possible solutions: and(java.lang.String, java.lang.Object), any(), any(groovy.lang.Closure), find(), in([Ljava.lang.Object;), find(groovy.lang.Closure)
+	at org.pac.bootraplab.services.db.fetch.MongoFetchCriteriaSpec.assert or(MongoFetchCriteriaSpec.groovy:26)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="assert simple where"></a>
+<h3 class="failures">assert simple where</h3>
+<span class="code">
+<pre>Condition not satisfied:
+
+criteria.dbObject() == new BasicDBObject(&quot;hero&quot;, &quot;superman&quot;)
+|        |          |  |
+|        |          |  [hero:superman]
+|        |          false
+|        [$query:[hero:superman]]
+org.pac.bootstraplab.services.db.criteria.MongoFetchCriteria@672f0d
+
+	at org.pac.bootraplab.services.db.fetch.MongoFetchCriteriaSpec.assert simple where(MongoFetchCriteriaSpec.groovy:20)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">assert and</td>
+<td>0s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">assert complex query (where and or with greater/less then)</td>
+<td>0.001s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">assert greater then</td>
+<td>0.004s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">assert in</td>
+<td>0.004s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">assert less then</td>
+<td>0.002s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">assert or</td>
+<td>0.001s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">assert simple where</td>
+<td>0.124s</td>
+<td class="failures">failed</td>
+</tr>
+</table>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>[$query:[hero:[$in:[superman, batman, hulk]]]]
+[$query:[gravity:[$gt:9.81]]]
+[$query:[gravity:[$lt:9.81]]]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>Generated by 
+<a href="http://www.gradle.org">Gradle 1.8</a> at Dec 8, 2013 9:14:02 PM</p>
+</div>
+</div>
+</body>
