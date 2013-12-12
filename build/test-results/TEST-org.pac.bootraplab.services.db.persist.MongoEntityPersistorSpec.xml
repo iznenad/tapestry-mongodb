@@ -1,8 +1,0 @@
-<?xml version="1.1" encoding="UTF-8"?>
-<testsuite name="org.pac.bootraplab.services.db.persist.MongoEntityPersistorSpec" tests="2" failures="0" errors="0" timestamp="2013-12-11T17:46:52" hostname="iznenad" time="0.26">
-  <properties/>
-  <testcase name="should write entity" classname="org.pac.bootraplab.services.db.persist.MongoEntityPersistorSpec" time="0.255"/>
-  <testcase name="should write entity with go into field" classname="org.pac.bootraplab.services.db.persist.MongoEntityPersistorSpec" time="0.004"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
