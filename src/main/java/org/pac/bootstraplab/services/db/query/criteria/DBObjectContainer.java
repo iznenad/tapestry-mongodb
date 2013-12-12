@@ -1,7 +1,7 @@
 /*
  * $Id$
  */
-package org.pac.bootstraplab.services.db.criteria;
+package org.pac.bootstraplab.services.db.query.criteria;
 
 import com.mongodb.DBObject;
 

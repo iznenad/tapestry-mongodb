@@ -8,7 +8,9 @@ import java.util.List;
 
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.pac.bootstraplab.services.db.MongoDBProvider;
-import org.pac.bootstraplab.services.db.criteria.FetchCriteria;
+import org.pac.bootstraplab.services.db.query.criteria.FetchCriteria;
+import org.pac.bootstraplab.services.db.query.cursor.CursorOperation;
+import org.pac.bootstraplab.services.db.query.cursor.CursorOperationsAware;
 import org.slf4j.Logger;
 
 import com.mongodb.DB;
@@ -41,7 +43,7 @@ public class MongoEntityFetcher implements EntityFetcher {
 		
 		logger.info("Executing query: {}", criteria.dbObject());
 		
-		DBCursor cursor = collection.find(criteria.dbObject());
+		DBCursor cursor = executeCursorOperations(collection.find(criteria.dbObject()), criteria);
 		
 		logger.info("Found {} items for {}", new Object[]{cursor.count(), spec.getSimpleName()});
 		
@@ -60,35 +62,16 @@ public class MongoEntityFetcher implements EntityFetcher {
 		return result;
 	}
 
-	@Override
-	public <T> List<T> fetch(Class<T> spec, DBObject dbObject) {
-		
-		long startTime = System.currentTimeMillis();
-		
-		assert spec!=null;
-		assert dbObject != null;
-		
-		DB db = mongoDBProvider.provideDB();
-		
-		DBCollection collection = db.getCollection(spec.getSimpleName());
-		
-		logger.info("Executing query: {}", dbObject);
-		
-		DBCursor cursor = collection.find(dbObject);
-		
-		logger.info("Found {} items for {}", new Object[]{cursor.count(), spec.getSimpleName()});
-		
-		List<T> result = new ArrayList<>();
-		
-		while(cursor.hasNext()){
-			
-			DBObject object = cursor.next();
-			
-			result.add((T) entityObjectGenerator.generate(spec, object));
-			
+	private DBCursor executeCursorOperations(final DBCursor cursor, FetchCriteria criteria){
+		if(!(criteria instanceof CursorOperationsAware)){
+			return cursor;
 		}
 		
-		logger.info(String.format("Query time: %d ms",  System.currentTimeMillis() - startTime));
+		CursorOperationsAware operationsContainer = (CursorOperationsAware) criteria;
+		DBCursor result = cursor;
+		for(CursorOperation operation : operationsContainer.getOperations()) {
+			result = operation.executeOn(cursor);
+		}
 		
 		return result;
 	}

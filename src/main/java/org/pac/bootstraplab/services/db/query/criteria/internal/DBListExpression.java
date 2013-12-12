@@ -1,7 +1,7 @@
 
-package org.pac.bootstraplab.services.db.criteria.internal;
+package org.pac.bootstraplab.services.db.query.criteria.internal;
 
-import org.pac.bootstraplab.services.db.criteria.DBObjectContainer;
+import org.pac.bootstraplab.services.db.query.criteria.DBObjectContainer;
 
 import com.mongodb.BasicDBList;
 import com.mongodb.DBObject;

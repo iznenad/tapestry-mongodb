@@ -1,4 +1,4 @@
-package org.pac.bootstraplab.services.db.cursor;
+package org.pac.bootstraplab.services.db.query.cursor;
 
 import com.mongodb.DBCursor;
 

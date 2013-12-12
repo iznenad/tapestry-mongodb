@@ -1,7 +1,7 @@
 /*
  * $Id$
  */
-package org.pac.bootstraplab.services.db.cursor;
+package org.pac.bootstraplab.services.db.query.cursor;
 
 public enum SortConstraint {
 	ASC(1), DESC(-1);

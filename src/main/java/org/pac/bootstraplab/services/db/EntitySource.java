@@ -3,7 +3,7 @@ package org.pac.bootstraplab.services.db;
 import java.util.List;
 
 import org.pac.bootstraplab.models.AbstractEntity;
-import org.pac.bootstraplab.services.db.criteria.FetchCriteria;
+import org.pac.bootstraplab.services.db.query.criteria.FetchCriteria;
 
 public interface EntitySource {
 

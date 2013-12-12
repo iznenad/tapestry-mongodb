@@ -1,15 +1,17 @@
-package org.pac.bootstraplab.services.db.cursor;
+package org.pac.bootstraplab.services.db.query.cursor;
+
+import org.pac.bootstraplab.services.db.query.Gluer;
+import org.pac.bootstraplab.services.db.query.criteria.FetchCriteria;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
 
 
-
 public class CursorOperationsImpl implements CursorOperations {
 
-	private CursorOperationsAware operationsContainer;
+	private FetchCriteria operationsContainer;
 	
-	public CursorOperationsImpl(CursorOperationsAware operationsContainer) {
+	public CursorOperationsImpl(FetchCriteria operationsContainer) {
 		this.operationsContainer = operationsContainer;
 	}
 	
@@ -61,27 +63,21 @@ public class CursorOperationsImpl implements CursorOperations {
 	}
 	
 	@Override
-	public CursorOperations sort(String field, SortConstraint constraint) {
+	public Gluer<CursorOperations> sort(String field, SortConstraint constraint) {
 		
-		operationsContainer.setOperation(new SortOperation(field, constraint));
-		
-		return this;
+		return new CursorOperationsGluer(operationsContainer, new SortOperation(field, constraint));
 	}
 
 	@Override
-	public CursorOperations limit(int limitTo) {
+	public Gluer<CursorOperations> limit(int limitTo) {
 		
-		operationsContainer.setOperation(new LimitOperation(limitTo));
-		
-		return this;
+		return new CursorOperationsGluer(operationsContainer, new LimitOperation(limitTo));
 	}
 
 	@Override
-	public CursorOperations skip(int skip) {
+	public Gluer<CursorOperations> skip(int skip) {
 		
-		operationsContainer.setOperation(new SkipOperation(skip));
-		
-		return this;
+		return new CursorOperationsGluer(operationsContainer, new SkipOperation(skip));
 	}
 
 }

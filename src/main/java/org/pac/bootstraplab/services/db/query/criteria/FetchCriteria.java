@@ -1,15 +1,18 @@
-package org.pac.bootstraplab.services.db.criteria;
+package org.pac.bootstraplab.services.db.query.criteria;
 
-import org.pac.bootstraplab.services.db.cursor.CursorOperations;
+import org.pac.bootstraplab.services.db.query.Gluer;
+import org.pac.bootstraplab.services.db.query.cursor.CursorOperations;
 
 
 public interface FetchCriteria extends DBObjectContainer {
 
-	ExpressionOpener simpleQuery();
+	ExpressionOpener query();
 
 	ExpressionOpener or();
 	
 	ExpressionOpener and();
+	
+	ExpressionCloser findAll();
 	
 	static interface LogicalExpression extends DBObjectContainer {
 		
@@ -24,11 +27,7 @@ public interface FetchCriteria extends DBObjectContainer {
 		LogicalExpression where(String field);
 	}
 	
-	static interface ExpressionCloser {
-		ExpressionOpener _();
-		
+	static interface ExpressionCloser extends Gluer<ExpressionOpener>{
 		CursorOperations cursor();
-		
-		FetchCriteria end();
 	}
 }

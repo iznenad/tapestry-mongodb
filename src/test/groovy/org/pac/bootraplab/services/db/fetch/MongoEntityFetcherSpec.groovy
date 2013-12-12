@@ -4,9 +4,9 @@
 package org.pac.bootraplab.services.db.fetch
 
 import org.pac.bootstraplab.services.db.MongoDBProvider
-import org.pac.bootstraplab.services.db.criteria.FetchCriteria
 import org.pac.bootstraplab.services.db.fetch.EntityGenerator
 import org.pac.bootstraplab.services.db.fetch.MongoEntityFetcher
+import org.pac.bootstraplab.services.db.query.criteria.FetchCriteria
 import org.pac.test.model.TestEntity
 import org.slf4j.Logger
 
