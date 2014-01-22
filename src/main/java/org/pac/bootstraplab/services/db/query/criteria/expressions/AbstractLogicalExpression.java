@@ -1,11 +1,11 @@
 package org.pac.bootstraplab.services.db.query.criteria.expressions;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
 import org.pac.bootstraplab.services.db.query.criteria.DBObjectContainer;
 import org.pac.bootstraplab.services.db.query.criteria.ExpressionCloserImpl;
 import org.pac.bootstraplab.services.db.query.criteria.FetchCriteria;
 import org.pac.bootstraplab.services.db.query.criteria.FetchCriteria.ExpressionCloser;
-import org.pac.bootstraplab.services.db.query.criteria.FetchCriteria.LogicalExpression;
 import org.pac.bootstraplab.services.db.query.criteria.internal.Setter;
 
 import com.mongodb.BasicDBObject;
@@ -18,6 +18,8 @@ public abstract class AbstractLogicalExpression implements FetchCriteria.Logical
 	private static final String GREATER_THEN_KEYWORD = "$gt";
 
 	private static final String LESS_THEN_KEYWORD = "$lt";
+	
+	private static final String ELEM_MATCH_KEYWORD = "$elemMatch";
 	
 	
 	private String field;
@@ -67,6 +69,19 @@ public abstract class AbstractLogicalExpression implements FetchCriteria.Logical
 		throwExceptionIfFieldIsNull();
 		
 		dataHolder.set(new BasicDBObject(field, new BasicDBObject(LESS_THEN_KEYWORD, value)));
+		
+		return new ExpressionCloserImpl(parent, this);
+	}
+	
+	@Override
+	public ExpressionCloser elemMatch(Pair<String, Object> ... fieldToValue) {
+		throwExceptionIfFieldIsNull();
+		
+		BasicDBObject elemMatch = new BasicDBObject();
+		for (Pair<String, Object> pair : fieldToValue) {
+			elemMatch.append(pair.getKey(), pair.getValue());
+		}
+		dataHolder.set(new BasicDBObject(field, new BasicDBObject(ELEM_MATCH_KEYWORD, elemMatch)));
 		
 		return new ExpressionCloserImpl(parent, this);
 	}

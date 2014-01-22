@@ -39,7 +39,7 @@ public class MongoFetchCriteria implements FetchCriteria, CursorOperationsAware,
 		expressions = new ArrayList<>();
 		operations = new ArrayList<>();
 	}
-
+	
 	@Override
 	public ExpressionOpener or() {
 		return new ExpressionOpenerImpl(new Or(this));
